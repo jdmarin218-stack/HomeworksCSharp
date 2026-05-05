@@ -8,6 +8,7 @@ import 'screens/ejercicio06_screen.dart';
 import 'screens/ejercicio07_screen.dart';
 import 'screens/ejercicio08_screen.dart';
 import 'screens/ejercicio09_screen.dart';
+import 'screens/ejercicio10_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,6 +64,7 @@ class MenuScreen extends StatelessWidget {
           _buildItem(context, '07', 'Remainder Finder', const Ejercicio07Screen()),
           _buildItem(context, '08', 'Sum of Evens', const Ejercicio08Screen()),
           _buildItem(context, '09', 'Fraction Difference', const Ejercicio09Screen()),
+          _buildItem(context, '10', 'String Length', const Ejercicio10Screen()),
         ],
       ),
     );
