@@ -10,6 +10,7 @@ import 'screens/ejercicio08_screen.dart';
 import 'screens/ejercicio09_screen.dart';
 import 'screens/ejercicio10_screen.dart';
 import 'screens/ejercicio11_screen.dart';
+import 'screens/ejercicio12_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,6 +68,7 @@ class MenuScreen extends StatelessWidget {
           _buildItem(context, '09', 'Fraction Difference', const Ejercicio09Screen()),
           _buildItem(context, '10', 'String Length', const Ejercicio10Screen()),
           _buildItem(context, '11', 'Average of Four', const Ejercicio11Screen()),
+          _buildItem(context, '12', 'Smallest of Five', const Ejercicio12Screen()),
         ],
       ),
     );
