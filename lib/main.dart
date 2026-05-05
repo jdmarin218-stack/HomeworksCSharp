@@ -13,7 +13,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Homeworks Flutter',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorSchemeSeed: Colors.indigo),
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFF00E5FF),
+          secondary: Color(0xFF69FF47),
+          surface: Color(0xFF1E1E2E),
+        ),
+        scaffoldBackgroundColor: const Color(0xFF121212),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF1E1E2E),
+          foregroundColor: Color(0xFF00E5FF),
+        ),
+        cardTheme: const CardThemeData(
+          color: Color(0xFF1E1E2E),
+        ),
+      ),
       home: const MenuScreen(),
     );
   }
@@ -27,8 +42,6 @@ class MenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Homeworks - Menú Principal'),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
@@ -46,11 +59,15 @@ class MenuScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: Colors.indigo,
-          child: Text(num, style: const TextStyle(color: Colors.white)),
+          backgroundColor: const Color(0xFF00E5FF),
+          child: Text(num,
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold)),
         ),
-        title: Text('Ejercicio $num - $titulo'),
-        trailing: const Icon(Icons.arrow_forward_ios),
+        title: Text('Ejercicio $num - $titulo',
+            style: const TextStyle(color: Colors.white)),
+        trailing: const Icon(Icons.arrow_forward_ios,
+            color: Color(0xFF00E5FF)),
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => screen),
