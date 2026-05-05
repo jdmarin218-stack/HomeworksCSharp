@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/ejercicio01_screen.dart';
 import 'screens/ejercicio02_screen.dart';
 import 'screens/ejercicio03_screen.dart';
+import 'screens/ejercicio04_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,6 +52,7 @@ class MenuScreen extends StatelessWidget {
           _buildItem(context, '01', 'Positive Power', const Ejercicio01Screen()),
           _buildItem(context, '02', 'Double or Triple', const Ejercicio02Screen()),
           _buildItem(context, '03', 'Root or Square', const Ejercicio03Screen()),
+          _buildItem(context, '04', 'Circle Perimeter', const Ejercicio04Screen()),
         ],
       ),
     );
@@ -65,7 +67,7 @@ class MenuScreen extends StatelessWidget {
           child: Text(num,
               style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
         ),
-        title: Text('Ejercicio $num - $titulo',
+        title: Text('Ejercicio $num: $titulo',
             style: const TextStyle(color: Colors.white)),
         trailing: const Icon(Icons.arrow_forward_ios, color: Color(0xFF00E5FF)),
         onTap: () => Navigator.push(
