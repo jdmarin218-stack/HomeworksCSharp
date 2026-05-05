@@ -41,13 +41,39 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ejercicio 1 - Positive Power'),
+        title: const Text('Ejercicio 01: Positive Power'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1E1E2E),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: const Color(0xFF69FF47)),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('¿Qué hace este ejercicio?',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF69FF47))),
+                  SizedBox(height: 8),
+                  Text(
+                    '• Si el número es positivo → devuelve su cuadrado\n'
+                    '• Si el número es negativo → muestra "Número negativo"\n'
+                    '• Si es 0 → devuelve 0',
+                    style: TextStyle(fontSize: 14, color: Colors.white70),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
             const Text('Ingresa un número:',
                 style: TextStyle(fontSize: 18, color: Colors.white)),
             const SizedBox(height: 12),
@@ -56,7 +82,6 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
               keyboardType: TextInputType.number,
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                border: const OutlineInputBorder(),
                 hintText: 'Ejemplo: 5',
                 hintStyle: TextStyle(color: Colors.grey.shade500),
                 enabledBorder: OutlineInputBorder(
@@ -64,8 +89,7 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: Color(0xFF00E5FF), width: 2),
+                  borderSide: const BorderSide(color: Color(0xFF00E5FF), width: 2),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
@@ -110,8 +134,7 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
                       borderRadius: BorderRadius.circular(8)),
                 ),
                 child: const Text('Nueva operación',
-                    style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
               const SizedBox(height: 12),
               ElevatedButton(
@@ -124,8 +147,7 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
                       borderRadius: BorderRadius.circular(8)),
                 ),
                 child: const Text('Salir al menú',
-                    style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
             ],
           ],

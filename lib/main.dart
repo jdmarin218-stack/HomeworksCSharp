@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/ejercicio01_screen.dart';
 import 'screens/ejercicio02_screen.dart';
+import 'screens/ejercicio03_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +50,7 @@ class MenuScreen extends StatelessWidget {
         children: [
           _buildItem(context, '01', 'Positive Power', const Ejercicio01Screen()),
           _buildItem(context, '02', 'Double or Triple', const Ejercicio02Screen()),
+          _buildItem(context, '03', 'Root or Square', const Ejercicio03Screen()),
         ],
       ),
     );

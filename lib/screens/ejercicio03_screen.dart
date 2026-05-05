@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
-import '../exercises/ejercicio02.dart';
+import '../exercises/ejercicio03.dart';
 
-class Ejercicio02Screen extends StatefulWidget {
-  const Ejercicio02Screen({super.key});
+class Ejercicio03Screen extends StatefulWidget {
+  const Ejercicio03Screen({super.key});
 
   @override
-  State<Ejercicio02Screen> createState() => _Ejercicio02ScreenState();
+  State<Ejercicio03Screen> createState() => _Ejercicio03ScreenState();
 }
 
-class _Ejercicio02ScreenState extends State<Ejercicio02Screen> {
-  final TextEditingController _controller1 = TextEditingController();
-  final TextEditingController _controller2 = TextEditingController();
+class _Ejercicio03ScreenState extends State<Ejercicio03Screen> {
+  final TextEditingController _controller = TextEditingController();
   String _resultado = '';
   bool _mostrarBotones = false;
 
   void _calcular() {
-    final input1 = int.tryParse(_controller1.text);
-    final input2 = int.tryParse(_controller2.text);
-    if (input1 == null || input2 == null) {
+    final input = double.tryParse(_controller.text);
+    if (input == null) {
       setState(() {
-        _resultado = 'Por favor ingresa números válidos.';
+        _resultado = 'Por favor ingresa un número válido.';
         _mostrarBotones = false;
       });
       return;
     }
-    final ejercicio = DoubleOrTriple(input1, input2);
+    final ejercicio = RootOrSquare(input);
     setState(() {
       _resultado = ejercicio.calcular();
       _mostrarBotones = true;
@@ -33,8 +31,7 @@ class _Ejercicio02ScreenState extends State<Ejercicio02Screen> {
 
   void _nuevaOperacion() {
     setState(() {
-      _controller1.clear();
-      _controller2.clear();
+      _controller.clear();
       _resultado = '';
       _mostrarBotones = false;
     });
@@ -44,7 +41,7 @@ class _Ejercicio02ScreenState extends State<Ejercicio02Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ejercicio 02: Double or Triple'),
+        title: const Text('Ejercicio 03: Root or Square'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -68,45 +65,24 @@ class _Ejercicio02ScreenState extends State<Ejercicio02Screen> {
                           color: Color(0xFF69FF47))),
                   SizedBox(height: 8),
                   Text(
-                    '• Si el primero es mayor → devuelve su doble\n'
-                    '• Si el segundo es mayor → devuelve su triple\n'
-                    '• Si son iguales → devuelve el doble del primero',
+                    '• Si el número es positivo → devuelve su raíz cuadrada\n'
+                    '• Si el número es negativo → devuelve su cuadrado\n'
+                    '• Si es 0 → devuelve 0',
                     style: TextStyle(fontSize: 14, color: Colors.white70),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 20),
-            const Text('Ingresa el primer número:',
+            const Text('Ingresa un número:',
                 style: TextStyle(fontSize: 18, color: Colors.white)),
             const SizedBox(height: 12),
             TextField(
-              controller: _controller1,
+              controller: _controller,
               keyboardType: TextInputType.number,
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                hintText: 'Ejemplo: 4',
-                hintStyle: TextStyle(color: Colors.grey.shade500),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Color(0xFF00E5FF)),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Color(0xFF00E5FF), width: 2),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            const Text('Ingresa el segundo número:',
-                style: TextStyle(fontSize: 18, color: Colors.white)),
-            const SizedBox(height: 12),
-            TextField(
-              controller: _controller2,
-              keyboardType: TextInputType.number,
-              style: const TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: 'Ejemplo: 3',
+                hintText: 'Ejemplo: 9',
                 hintStyle: TextStyle(color: Colors.grey.shade500),
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Color(0xFF00E5FF)),
