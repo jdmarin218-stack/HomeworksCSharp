@@ -13,6 +13,7 @@ import 'screens/ejercicio11_screen.dart';
 import 'screens/ejercicio12_screen.dart';
 import 'screens/ejercicio13_screen.dart';
 import 'screens/ejercicio14_screen.dart';
+import 'screens/ejercicio15_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,6 +74,7 @@ class MenuScreen extends StatelessWidget {
           _buildItem(context, '12', 'Smallest of Five', const Ejercicio12Screen()),
           _buildItem(context, '13', 'Vowel Counter', const Ejercicio13Screen()),
           _buildItem(context, '14', 'Factorial Finder', const Ejercicio14Screen()),
+          _buildItem(context, '15', 'InRange Validator', const Ejercicio15Screen()),
         ],
       ),
     );
