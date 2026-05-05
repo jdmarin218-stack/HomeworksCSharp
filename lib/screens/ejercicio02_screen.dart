@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
-import '../exercises/ejercicio01.dart';
+import '../exercises/ejercicio02.dart';
 
-class Ejercicio01Screen extends StatefulWidget {
-  const Ejercicio01Screen({super.key});
+class Ejercicio02Screen extends StatefulWidget {
+  const Ejercicio02Screen({super.key});
 
   @override
-  State<Ejercicio01Screen> createState() => _Ejercicio01ScreenState();
+  State<Ejercicio02Screen> createState() => _Ejercicio02ScreenState();
 }
 
-class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
-  final TextEditingController _controller = TextEditingController();
+class _Ejercicio02ScreenState extends State<Ejercicio02Screen> {
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
   String _resultado = '';
   bool _mostrarBotones = false;
 
   void _calcular() {
-    final input = int.tryParse(_controller.text);
-    if (input == null) {
+    final input1 = int.tryParse(_controller1.text);
+    final input2 = int.tryParse(_controller2.text);
+    if (input1 == null || input2 == null) {
       setState(() {
-        _resultado = 'Por favor ingresa un número válido.';
+        _resultado = 'Por favor ingresa números válidos.';
         _mostrarBotones = false;
       });
       return;
     }
-    final ejercicio = PositivePower(input);
+    final ejercicio = DoubleOrTriple(input1, input2);
     setState(() {
       _resultado = ejercicio.calcular();
       _mostrarBotones = true;
@@ -31,7 +33,8 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
 
   void _nuevaOperacion() {
     setState(() {
-      _controller.clear();
+      _controller1.clear();
+      _controller2.clear();
       _resultado = '';
       _mostrarBotones = false;
     });
@@ -41,31 +44,50 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ejercicio 1 - Positive Power'),
+        title: const Text('Ejercicio 2 - Double or Triple'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Ingresa un número:',
+            const Text('Ingresa el primer número:',
                 style: TextStyle(fontSize: 18, color: Colors.white)),
             const SizedBox(height: 12),
             TextField(
-              controller: _controller,
+              controller: _controller1,
               keyboardType: TextInputType.number,
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                hintText: 'Ejemplo: 5',
+                hintText: 'Ejemplo: 4',
                 hintStyle: TextStyle(color: Colors.grey.shade500),
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Color(0xFF00E5FF)),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: Color(0xFF00E5FF), width: 2),
+                  borderSide: const BorderSide(color: Color(0xFF00E5FF), width: 2),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text('Ingresa el segundo número:',
+                style: TextStyle(fontSize: 18, color: Colors.white)),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _controller2,
+              keyboardType: TextInputType.number,
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: 'Ejemplo: 3',
+                hintStyle: TextStyle(color: Colors.grey.shade500),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF00E5FF)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF00E5FF), width: 2),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
@@ -110,8 +132,7 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
                       borderRadius: BorderRadius.circular(8)),
                 ),
                 child: const Text('Nueva operación',
-                    style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
               const SizedBox(height: 12),
               ElevatedButton(
@@ -124,8 +145,7 @@ class _Ejercicio01ScreenState extends State<Ejercicio01Screen> {
                       borderRadius: BorderRadius.circular(8)),
                 ),
                 child: const Text('Salir al menú',
-                    style: TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
             ],
           ],

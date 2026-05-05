@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/ejercicio01_screen.dart';
+import 'screens/ejercicio02_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,28 +47,25 @@ class MenuScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _buildItem(context, '01', 'Positive Power',
-              const Ejercicio01Screen()),
+          _buildItem(context, '01', 'Positive Power', const Ejercicio01Screen()),
+          _buildItem(context, '02', 'Double or Triple', const Ejercicio02Screen()),
         ],
       ),
     );
   }
 
-  Widget _buildItem(BuildContext context, String num, String titulo,
-      Widget screen) {
+  Widget _buildItem(BuildContext context, String num, String titulo, Widget screen) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: const Color(0xFF00E5FF),
           child: Text(num,
-              style: const TextStyle(
-                  color: Colors.black, fontWeight: FontWeight.bold)),
+              style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
         ),
         title: Text('Ejercicio $num - $titulo',
             style: const TextStyle(color: Colors.white)),
-        trailing: const Icon(Icons.arrow_forward_ios,
-            color: Color(0xFF00E5FF)),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Color(0xFF00E5FF)),
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => screen),
