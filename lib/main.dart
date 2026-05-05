@@ -4,6 +4,7 @@ import 'screens/ejercicio02_screen.dart';
 import 'screens/ejercicio03_screen.dart';
 import 'screens/ejercicio04_screen.dart';
 import 'screens/ejercicio05_screen.dart';
+import 'screens/ejercicio06_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +56,7 @@ class MenuScreen extends StatelessWidget {
           _buildItem(context, '03', 'Root or Square', const Ejercicio03Screen()),
           _buildItem(context, '04', 'Circle Perimeter', const Ejercicio04Screen()),
           _buildItem(context, '05', 'Midweek Day', const Ejercicio05Screen()),
+          _buildItem(context, '06', 'Tax Calculator', const Ejercicio06Screen()),
         ],
       ),
     );
